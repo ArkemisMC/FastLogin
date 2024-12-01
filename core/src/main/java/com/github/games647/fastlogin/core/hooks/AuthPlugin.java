@@ -91,7 +91,7 @@ public interface AuthPlugin<P> {
      * Return empty message for no message sent. Return null to use default value.
      *
      * @param key the string key
-     * @param receiver the player
+     * @param receiver the player. Can be null.
      * @return the translation or null for default message, or empty for no message
      */
     default String getTranslation(String key, P receiver) {

@@ -212,20 +212,21 @@ public class FastLoginCore<P extends C, C, T extends PlatformPlugin<C>> {
         return plugin;
     }
 
-    public void sendLocaleMessage(String key, C receiver) {
-        String pluginTranslation = authPlugin.getTranslation(key, receiver);
-        if (pluginTranslation == null) { // default answer
-            String message = localeMessages.get(key);
-            if (message != null) {
-                plugin.sendMultiLineMessage(receiver, message);
-            }
-        } else if (!pluginTranslation.equals("")) { // if not set as empty
-            plugin.sendMultiLineMessage(receiver, pluginTranslation);
-        }
+    public void sendLocaleMessage(String key, P receiver) {
+        plugin.sendMultiLineMessage(getMessage(key, receiver));
     }
 
     public String getMessage(String key) {
-        return localeMessages.get(key);
+        return getMessage(key, null);
+    }
+
+    public String getMessage(String key, P receiver) {
+        String pluginTranslation = authPlugin.getTranslation(key, receiver);
+        if (pluginTranslation == null) { // default answer
+            return localeMessages.get(key);
+        } else { // if not set as empty
+            return pluginTranslation;
+        }
     }
 
     public boolean setupDatabase() {
