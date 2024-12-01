@@ -119,7 +119,7 @@ public abstract class ForceLoginManagement<P extends C, C, L extends LoginSessio
 
         boolean success = core.getAuthPluginHook().forceLogin(player);
         if (success) {
-            core.sendLocaleMessage("auto-login", player);
+            code.sendMultiLineMessage(player, code.getMessage("auto-login", player));
         }
 
         return success;

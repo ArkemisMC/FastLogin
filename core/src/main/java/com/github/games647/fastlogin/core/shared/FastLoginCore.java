@@ -216,10 +216,6 @@ public class FastLoginCore<P extends C, C, T extends PlatformPlugin<C>> {
         plugin.sendMultiLineMessage(receiver, getMessage(key, null));
     }
 
-    public void sendLocaleMessage(String key, P receiver) {
-        plugin.sendMultiLineMessage(receiver, getMessage(key, receiver));
-    }
-
     public String getMessage(String key) {
         return getMessage(key, null);
     }
