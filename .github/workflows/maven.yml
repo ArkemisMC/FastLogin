@@ -47,7 +47,7 @@ jobs:
         if: success()
         with:
           name: 'FastLogin.zip'
-          path: 'target/FastLogin*.jar'
+          path: 'core/target/*.jar'
           
   dependency:
     runs-on: ubuntu-latest
