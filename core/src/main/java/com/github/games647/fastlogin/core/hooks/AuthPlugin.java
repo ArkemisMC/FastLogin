@@ -84,4 +84,13 @@ public interface AuthPlugin<P> {
      * @throws Exception if an error occurred
      */
     boolean isRegistered(String playerName) throws Exception;
+
+    /**
+     * Get the translation for the given message key.
+     * <p>
+     * Return empty message for no message sent. Return null to use default value.
+     */
+    default String getTranslation(String key, P receiver) {
+        return null;
+    }
 }
