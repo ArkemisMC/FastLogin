@@ -214,13 +214,14 @@ public class FastLoginCore<P extends C, C, T extends PlatformPlugin<C>> {
 
     public void sendLocaleMessage(String key, C receiver) {
         String pluginTranslation = authPlugin.getTranslation(key, receiver);
-        if(pluginTranslation == null) { // default answer
+        if (pluginTranslation == null) { // default answer
             String message = localeMessages.get(key);
             if (message != null) {
                 plugin.sendMultiLineMessage(receiver, message);
             }
-        } else if(!pluginTranslation.equals("")) // if not set as empty
+        } else if (!pluginTranslation.equals("")) { // if not set as empty
             plugin.sendMultiLineMessage(receiver, pluginTranslation);
+        }
     }
 
     public String getMessage(String key) {
